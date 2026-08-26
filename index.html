@@ -70,23 +70,29 @@
        reservation, contact and bespoke forms.
        EmailJS works with static HTML — no backend needed.
   ══════════════════════════════════════════════ -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <!-- defer: EmailJS is only needed when a form is actually submitted,
+       long after page load — it shouldn't block initial rendering.
+       NOTE: `defer` has no effect on inline scripts, so the init code
+       below waits for this script's own `load` event instead. -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer id="emailjsLib"></script>
   <script>
-    /* TODO: Replace all YOUR_EMAILJS_* placeholders with real
-       credentials from your emailjs.com dashboard before going live.
-       Sign up free at emailjs.com — up to 200 emails/month.
-       Steps:
-         1. Create account at emailjs.com
-         2. Add an email service (Gmail or other)
-         3. Create three email templates: owner reservation notice,
-            guest reservation confirmation, and a generic contact/
-            bespoke notice
-         4. Copy your Public Key, Service ID and Template IDs here */
-    emailjs.init('yagoCYNYQo0clfQPJ');
-    window.EMAILJS_SERVICE_ID      = 'service_vhaispa';
-    window.EMAILJS_TEMPLATE_OWNER  = 'template_4nhd5z6';
-    window.EMAILJS_TEMPLATE_GUEST  = 'template_6juhs4k';
-    window.EMAILJS_TEMPLATE_CONTACT = 'YOUR_CONTACT_TEMPLATE_ID';
+    document.getElementById('emailjsLib').addEventListener('load', function () {
+      /* TODO: Replace all YOUR_EMAILJS_* placeholders with real
+         credentials from your emailjs.com dashboard before going live.
+         Sign up free at emailjs.com — up to 200 emails/month.
+         Steps:
+           1. Create account at emailjs.com
+           2. Add an email service (Gmail or other)
+           3. Create three email templates: owner reservation notice,
+              guest reservation confirmation, and a generic contact/
+              bespoke notice
+           4. Copy your Public Key, Service ID and Template IDs here */
+      emailjs.init('yagoCYNYQo0clfQPJ');
+      window.EMAILJS_SERVICE_ID      = 'service_vhaispa';
+      window.EMAILJS_TEMPLATE_OWNER  = 'template_4nhd5z6';
+      window.EMAILJS_TEMPLATE_GUEST  = 'template_6juhs4k';
+      window.EMAILJS_TEMPLATE_CONTACT = 'YOUR_CONTACT_TEMPLATE_ID';
+    });
   </script>
 </head>
 
@@ -258,12 +264,12 @@
            Recommended: 15–20 seconds, looping, no sound, 1920×1080 minimum, MP4 format
            File location: /video/hero.mp4
            On mobile the video is hidden to save bandwidth — static image is used instead -->
-      <video id="heroVideo" class="hero-video" autoplay muted loop playsinline poster="images/hero.jpg" aria-hidden="true" onerror="this.style.display='none'"></video>
+      <video id="heroVideo" class="hero-video" autoplay muted loop playsinline poster="images/hero.webp" aria-hidden="true" onerror="this.style.display='none'"></video>
 
       <!-- MOBILE IMAGE: drop hero-mobile.jpg in /images/ folder
            Shown on screens ≤768px where video is disabled -->
-      <!-- REPLACE WITH: images/hero.jpg  (full-bleed landscape, pool or estate aerial) -->
-      <img src="images/hero.jpg" alt="Vista aérea de TERRA — la finca privada entre olivares en Campanet, Mallorca" class="hero-img" fetchpriority="high" decoding="async" id="heroImg" onerror="this.style.display='none'" />
+      <!-- REPLACE WITH: images/hero.webp  (full-bleed landscape, pool or estate aerial) -->
+      <img src="images/hero.webp" alt="Vista aérea de TERRA — la finca privada entre olivares en Campanet, Mallorca" class="hero-img" fetchpriority="high" decoding="async" id="heroImg" onerror="this.style.display='none'" />
 
       <!-- Warm semi-transparent overlay so text stays readable over video -->
       <div class="hero-overlay" aria-hidden="true"></div>
