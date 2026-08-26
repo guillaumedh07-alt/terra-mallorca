@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Términos y Condiciones — TERRA</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=20260514e" />
+  <style>
+    /* Terms page specific styles — mirrors privacy-policy.html */
+    .privacy-page-header {
+      background: var(--cream);
+      border-bottom: 1px solid var(--beige);
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .privacy-page-logo {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 1.4rem;
+      letter-spacing: 0.25em;
+      color: var(--earth);
+      text-decoration: none;
+    }
+    .privacy-page-back {
+      font-family: var(--font-sans, var(--font-body));
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: var(--stone);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .privacy-page-back:hover { color: var(--earth); opacity: 1; }
+    .privacy-page-main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+    }
+    .privacy-page-footer {
+      border-top: 1px solid var(--beige);
+      padding: 2rem;
+      text-align: center;
+    }
+    .privacy-page-lang {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    .privacy-page-lang .lang-btn {
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--stone);
+      padding: 0.2rem 0.3rem;
+      transition: color 0.2s;
+    }
+    .privacy-page-lang .lang-btn.active { color: var(--earth); font-weight: 500; }
+    .privacy-page-lang .lang-sep { color: var(--beige); font-size: 0.7rem; }
+
+    /* Draft disclaimer banner */
+    .terms-banner {
+      background: var(--cream);
+      border: 1px solid var(--stone);
+      border-radius: 4px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 2.5rem;
+      font-size: 0.82rem;
+      line-height: 1.6;
+      color: var(--earth);
+    }
+
+    /* Print / download PDF button */
+    .terms-print-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--earth);
+      background: var(--sand-light);
+      border: 1px solid var(--beige);
+      border-radius: 2px;
+      padding: 0.7rem 1.4rem;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      margin-bottom: 2.5rem;
+    }
+    .terms-print-btn:hover {
+      background: var(--terracotta);
+      color: var(--white);
+      border-color: var(--terracotta);
+    }
+
+    @media print {
+      .privacy-page-header,
+      .privacy-page-back,
+      .privacy-page-lang,
+      .terms-print-btn,
+      .privacy-page-footer {
+        display: none !important;
+      }
+      .privacy-page-main {
+        max-width: none;
+        padding: 1cm 1.5cm;
+      }
+      body, .privacy-body, .privacy-title, .privacy-updated, .terms-banner {
+        color: #000 !important;
+        background: #fff !important;
+        border-color: #000 !important;
+      }
+      .privacy-body h3 {
+        page-break-after: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="privacy-page-header">
+    <a href="index.html" class="privacy-page-logo">TERRA</a>
+    <div class="privacy-page-lang">
+      <button class="lang-btn" data-lang="es">ES</button>
+      <span class="lang-sep" aria-hidden="true">|</span>
+      <button class="lang-btn" data-lang="en">EN</button>
+      <span class="lang-sep" aria-hidden="true">|</span>
+      <button class="lang-btn" data-lang="fr">FR</button>
+      <span class="lang-sep" aria-hidden="true">|</span>
+      <button class="lang-btn" data-lang="de">DE</button>
+    </div>
+    <a href="index.html" class="privacy-page-back" id="backLinkTop">← Volver a TERRA</a>
+  </header>
+
+  <main class="privacy-page-main">
+    <h1 class="privacy-title" id="privacyTitle" style="font-family:var(--font-display);font-weight:400;font-size:clamp(1.8rem,3vw,2.8rem);margin-bottom:0.5rem;color:var(--earth);">Términos y Condiciones</h1>
+    <p class="privacy-updated" id="privacyUpdated" style="font-size:0.8rem;color:var(--stone);margin-bottom:2rem;letter-spacing:0.05em;"></p>
+    <div class="terms-banner" id="termsBanner"></div>
+    <button type="button" class="terms-print-btn" id="termsPrintBtn" onclick="window.print()">Imprimir / Descargar PDF</button>
+    <div class="privacy-body" id="privacyBody"></div>
+  </main>
+
+  <footer class="privacy-page-footer">
+    <a href="index.html" class="privacy-page-back" id="backLinkBottom">← Volver a TERRA</a>
+  </footer>
+
+  <script>
+    /* Minimal terms page script — language switching only, mirrors privacy-policy.html */
+    const TERMS_LANG = {
+      es: {
+        title:   'Términos y Condiciones',
+        updated: 'Última actualización: junio de 2026',
+        back:    '← Volver a TERRA',
+        print:   'Imprimir / Descargar PDF',
+        banner:  'Este documento es un borrador y se proporciona únicamente con fines informativos. No constituye asesoramiento legal. BBFarm srl revisará y finalizará estos términos y condiciones antes de su publicación definitiva.',
+        html: `
+<h3>1. Partes</h3>
+<p>El presente contrato se celebra entre BBFarm srl, sociedad propietaria de la finca TERRA — Your Private Estate, con domicilio en Polígono 12, Parcela 13, 07310 Campanet, Illes Balears, España (en adelante, "el Propietario"), y la persona que realiza la reserva (en adelante, "el Huésped").</p>
+<h3>2. El Alquiler</h3>
+<p>La finca TERRA se alquila en su totalidad y de forma exclusiva; no se aceptan reservas de habitaciones individuales. La estancia mínima es de 3 noches. La propiedad tiene una capacidad máxima de 24 huéspedes distribuidos en 12 habitaciones dobles. La entrada (check-in) es a partir de las 15:00 y la salida (check-out) antes de las 11:00.</p>
+<h3>3. Reserva y Pago</h3>
+<p>Para confirmar una reserva se requiere el pago de un depósito del 30% del importe total. El 70% restante deberá abonarse 60 días antes de la fecha de llegada. Para reservas realizadas dentro de los 60 días previos a la llegada, el importe total (100%) deberá pagarse en el momento de la confirmación.</p>
+<p>El precio incluye [TODO: confirmar con BBFarm srl qué servicios están incluidos — p. ej. limpieza final, ropa de cama, toallas, consumo de agua y electricidad estándar] y excluye [TODO: confirmar exclusiones — p. ej. servicios adicionales como chef privado, traslados, etc., que se contratan por separado].</p>
+<p><em>TODO: confirmar todos los importes y condiciones con BBFarm srl antes de la publicación.</em></p>
+<h3>4. Fianza</h3>
+<p>Se solicitará una fianza de 2.000 € antes de la llegada, destinada a cubrir posibles daños, pérdidas o gastos adicionales durante la estancia. La fianza será devuelta en un plazo de 14 días tras la salida, una vez verificado el estado de la propiedad, descontando en su caso el importe correspondiente a cualquier daño.</p>
+<h3>5. Política de Cancelación</h3>
+<ul>
+  <li>Cancelaciones realizadas con más de 90 días de antelación a la fecha de llegada: reembolso del importe abonado menos una penalización de 500 €.</li>
+  <li>Cancelaciones realizadas entre 60 y 90 días antes de la llegada: se retendrá el 50% del importe abonado.</li>
+  <li>Cancelaciones realizadas con menos de 60 días de antelación: se retendrá el 100% del importe abonado.</li>
+</ul>
+<p><em>TODO: confirmar estos plazos y porcentajes con BBFarm srl antes de la publicación definitiva.</em></p>
+<h3>6. Fuerza Mayor</h3>
+<p>Ninguna de las partes será responsable por el incumplimiento de sus obligaciones cuando dicho incumplimiento se deba a circunstancias de fuerza mayor, incluyendo —entre otras— catástrofes naturales, pandemias, restricciones gubernamentales, guerras o disturbios civiles, que estén fuera del control razonable de la parte afectada.</p>
+<h3>7. Uso de la Propiedad</h3>
+<p>El Huésped se compromete a: no organizar eventos públicos o celebraciones masivas sin el consentimiento previo y por escrito del Propietario; no reproducir música amplificada después de las 23:00; respetar que la admisión de mascotas está sujeta a un suplemento adicional y a la aprobación previa; fumar únicamente en zonas exteriores designadas; y utilizar la piscina bajo su propia responsabilidad, asumiendo el Huésped el riesgo derivado de su uso.</p>
+<h3>8. Responsabilidad</h3>
+<p>La responsabilidad del Propietario frente al Huésped, en cualquier circunstancia relacionada con el presente contrato, quedará limitada al importe total abonado por el alquiler de la propiedad.</p>
+<h3>9. Privacidad</h3>
+<p>El tratamiento de los datos personales del Huésped se rige por nuestra <a href="privacy-policy.html">Política de Privacidad</a>, disponible en terra-mallorca.com/privacy-policy.html.</p>
+<h3>10. Ley Aplicable y Jurisdicción</h3>
+<p>El presente contrato se rige por la legislación española. Para la resolución de cualquier controversia derivada del mismo, las partes se someten a la jurisdicción exclusiva de los juzgados y tribunales de Palma de Mallorca.</p>`
+      },
+      en: {
+        title:   'Terms & Conditions',
+        updated: 'Last updated: June 2026',
+        back:    '← Back to TERRA',
+        print:   'Print / Download PDF',
+        banner:  'This document is a draft provided for informational purposes only. It does not constitute legal advice. BBFarm srl will review and finalise these terms and conditions before final publication.',
+        html: `
+<h3>1. Parties</h3>
+<p>This agreement is entered into between BBFarm srl, the company that owns the TERRA — Your Private Estate property, with registered address at Polígono 12, Parcela 13, 07310 Campanet, Illes Balears, Spain (the "Owner"), and the person making the booking (the "Guest").</p>
+<h3>2. The Rental</h3>
+<p>TERRA is rented in its entirety and exclusively; bookings for individual rooms are not accepted. The minimum stay is 3 nights. The property has a maximum capacity of 24 guests across 12 double bedrooms. Check-in is from 15:00 and check-out is before 11:00.</p>
+<h3>3. Reservation & Payment</h3>
+<p>A booking is confirmed upon payment of a 30% deposit of the total amount. The remaining 70% is due 60 days before the arrival date. For bookings made within 60 days of arrival, the full amount (100%) is due at the time of confirmation.</p>
+<p>The price includes [TODO: confirm with BBFarm srl which services are included — e.g. final cleaning, bed linen, towels, standard water and electricity consumption] and excludes [TODO: confirm exclusions — e.g. additional services such as private chef, transfers, etc., booked separately].</p>
+<p><em>TODO: confirm all amounts and conditions with BBFarm srl before publication.</em></p>
+<h3>4. Security Deposit</h3>
+<p>A security deposit of €2,000 will be requested prior to arrival to cover any damages, losses or additional expenses incurred during the stay. The deposit will be returned within 14 days of departure, once the condition of the property has been verified, less any amount corresponding to damage if applicable.</p>
+<h3>5. Cancellation Policy</h3>
+<ul>
+  <li>Cancellations made more than 90 days before the arrival date: refund of the amount paid minus a €500 cancellation fee.</li>
+  <li>Cancellations made between 60 and 90 days before arrival: 50% of the amount paid will be retained.</li>
+  <li>Cancellations made less than 60 days before arrival: 100% of the amount paid will be retained.</li>
+</ul>
+<p><em>TODO: confirm these timeframes and percentages with BBFarm srl before final publication.</em></p>
+<h3>6. Force Majeure</h3>
+<p>Neither party shall be liable for failure to perform its obligations where such failure results from circumstances of force majeure, including but not limited to natural disasters, pandemics, government restrictions, war or civil unrest, beyond the reasonable control of the affected party.</p>
+<h3>7. Use of the Property</h3>
+<p>The Guest agrees to: not organise public events or large gatherings without the Owner's prior written consent; not play amplified music after 23:00; acknowledge that pets are admitted only with an additional supplement and prior approval; smoke only in designated outdoor areas; and use the swimming pool at their own risk, with the Guest assuming any risk arising from its use.</p>
+<h3>8. Liability</h3>
+<p>The Owner's liability to the Guest, in any circumstance related to this agreement, shall be limited to the total amount paid for the rental of the property.</p>
+<h3>9. Privacy</h3>
+<p>The processing of the Guest's personal data is governed by our <a href="privacy-policy.html">Privacy Policy</a>, available at terra-mallorca.com/privacy-policy.html.</p>
+<h3>10. Governing Law & Jurisdiction</h3>
+<p>This agreement is governed by Spanish law. Any dispute arising from it shall be subject to the exclusive jurisdiction of the courts of Palma de Mallorca.</p>`
+      },
+      fr: {
+        title:   'Conditions Générales',
+        updated: 'Dernière mise à jour : juin 2026',
+        back:    '← Retour à TERRA',
+        print:   'Imprimer / Télécharger le PDF',
+        banner:  'Ce document est un projet fourni à titre informatif uniquement. Il ne constitue pas un avis juridique. BBFarm srl révisera et finalisera ces conditions générales avant leur publication définitive.',
+        html: `
+<h3>1. Parties</h3>
+<p>Le présent contrat est conclu entre BBFarm srl, société propriétaire de la propriété TERRA — Your Private Estate, dont le siège est situé à Polígono 12, Parcela 13, 07310 Campanet, Illes Balears, Espagne (le « Propriétaire »), et la personne effectuant la réservation (le « Client »).</p>
+<h3>2. La Location</h3>
+<p>TERRA est louée dans son intégralité et de manière exclusive ; les réservations de chambres individuelles ne sont pas acceptées. La durée minimale du séjour est de 3 nuits. La propriété a une capacité maximale de 24 personnes réparties dans 12 chambres doubles. L'arrivée (check-in) se fait à partir de 15h00 et le départ (check-out) avant 11h00.</p>
+<h3>3. Réservation et Paiement</h3>
+<p>La réservation est confirmée après le paiement d'un acompte de 30 % du montant total. Les 70 % restants sont dus 60 jours avant la date d'arrivée. Pour les réservations effectuées dans les 60 jours précédant l'arrivée, le montant total (100 %) est dû au moment de la confirmation.</p>
+<p>Le prix comprend [TODO : confirmer avec BBFarm srl les services inclus — par ex. nettoyage final, linge de lit, serviettes, consommation standard d'eau et d'électricité] et exclut [TODO : confirmer les exclusions — par ex. services supplémentaires tels que chef privé, transferts, etc., réservés séparément].</p>
+<p><em>TODO : confirmer tous les montants et conditions avec BBFarm srl avant publication.</em></p>
+<h3>4. Dépôt de Garantie</h3>
+<p>Un dépôt de garantie de 2 000 € sera demandé avant l'arrivée afin de couvrir d'éventuels dommages, pertes ou frais supplémentaires survenus pendant le séjour. Le dépôt sera restitué dans un délai de 14 jours après le départ, une fois l'état de la propriété vérifié, déduction faite, le cas échéant, du montant correspondant à tout dommage.</p>
+<h3>5. Politique d'Annulation</h3>
+<ul>
+  <li>Annulations effectuées plus de 90 jours avant la date d'arrivée : remboursement du montant payé, moins des frais d'annulation de 500 €.</li>
+  <li>Annulations effectuées entre 60 et 90 jours avant l'arrivée : 50 % du montant payé seront retenus.</li>
+  <li>Annulations effectuées moins de 60 jours avant l'arrivée : 100 % du montant payé seront retenus.</li>
+</ul>
+<p><em>TODO : confirmer ces délais et pourcentages avec BBFarm srl avant la publication définitive.</em></p>
+<h3>6. Force Majeure</h3>
+<p>Aucune des parties ne pourra être tenue responsable de l'inexécution de ses obligations lorsque celle-ci résulte de circonstances de force majeure, incluant notamment les catastrophes naturelles, les pandémies, les restrictions gouvernementales, la guerre ou les troubles civils, échappant au contrôle raisonnable de la partie concernée.</p>
+<h3>7. Utilisation de la Propriété</h3>
+<p>Le Client s'engage à : ne pas organiser d'événements publics ou de grands rassemblements sans le consentement écrit préalable du Propriétaire ; ne pas diffuser de musique amplifiée après 23h00 ; reconnaître que les animaux de compagnie ne sont admis qu'avec un supplément et un accord préalable ; fumer uniquement dans les espaces extérieurs prévus à cet effet ; et utiliser la piscine à ses propres risques, le Client assumant tout risque lié à son utilisation.</p>
+<h3>8. Responsabilité</h3>
+<p>La responsabilité du Propriétaire envers le Client, dans toute circonstance liée au présent contrat, sera limitée au montant total payé pour la location de la propriété.</p>
+<h3>9. Confidentialité</h3>
+<p>Le traitement des données personnelles du Client est régi par notre <a href="privacy-policy.html">Politique de Confidentialité</a>, disponible sur terra-mallorca.com/privacy-policy.html.</p>
+<h3>10. Droit Applicable et Juridiction</h3>
+<p>Le présent contrat est régi par le droit espagnol. Tout litige en découlant relèvera de la compétence exclusive des tribunaux de Palma de Majorque.</p>`
+      },
+      de: {
+        title:   'Allgemeine Geschäftsbedingungen',
+        updated: 'Letzte Aktualisierung: Juni 2026',
+        back:    '← Zurück zu TERRA',
+        print:   'Drucken / PDF herunterladen',
+        banner:  'Dieses Dokument ist ein Entwurf und dient nur zu Informationszwecken. Es stellt keine Rechtsberatung dar. BBFarm srl wird diese Allgemeinen Geschäftsbedingungen vor der endgültigen Veröffentlichung prüfen und finalisieren.',
+        html: `
+<h3>1. Vertragsparteien</h3>
+<p>Dieser Vertrag wird zwischen der BBFarm srl, Eigentümerin der Immobilie TERRA — Your Private Estate, mit Sitz in Polígono 12, Parcela 13, 07310 Campanet, Illes Balears, Spanien (der „Eigentümer"), und der Person, die die Buchung vornimmt (der „Gast"), geschlossen.</p>
+<h3>2. Die Vermietung</h3>
+<p>TERRA wird ausschließlich als Gesamtobjekt vermietet; Buchungen einzelner Zimmer werden nicht akzeptiert. Die Mindestaufenthaltsdauer beträgt 3 Nächte. Die Immobilie verfügt über eine maximale Kapazität von 24 Gästen, verteilt auf 12 Doppelzimmer. Der Check-in erfolgt ab 15:00 Uhr, der Check-out vor 11:00 Uhr.</p>
+<h3>3. Reservierung und Zahlung</h3>
+<p>Eine Buchung wird durch Zahlung einer Anzahlung von 30 % des Gesamtbetrags bestätigt. Die restlichen 70 % sind 60 Tage vor dem Anreisedatum fällig. Bei Buchungen innerhalb von 60 Tagen vor der Anreise ist der gesamte Betrag (100 %) zum Zeitpunkt der Bestätigung fällig.</p>
+<p>Der Preis umfasst [TODO: mit BBFarm srl klären, welche Leistungen enthalten sind — z. B. Endreinigung, Bettwäsche, Handtücher, üblicher Wasser- und Stromverbrauch] und schließt aus [TODO: Ausschlüsse klären — z. B. Zusatzleistungen wie Privatkoch, Transfers usw., die separat gebucht werden].</p>
+<p><em>TODO: alle Beträge und Bedingungen vor Veröffentlichung mit BBFarm srl bestätigen.</em></p>
+<h3>4. Kaution</h3>
+<p>Vor der Anreise wird eine Kaution in Höhe von 2.000 € erhoben, die etwaige Schäden, Verluste oder zusätzliche Kosten während des Aufenthalts abdeckt. Die Kaution wird innerhalb von 14 Tagen nach der Abreise zurückerstattet, nachdem der Zustand der Immobilie überprüft wurde, gegebenenfalls abzüglich des Betrags für entstandene Schäden.</p>
+<h3>5. Stornierungsbedingungen</h3>
+<ul>
+  <li>Stornierungen mehr als 90 Tage vor dem Anreisedatum: Rückerstattung des gezahlten Betrags abzüglich einer Stornogebühr von 500 €.</li>
+  <li>Stornierungen zwischen 60 und 90 Tagen vor der Anreise: 50 % des gezahlten Betrags werden einbehalten.</li>
+  <li>Stornierungen weniger als 60 Tage vor der Anreise: 100 % des gezahlten Betrags werden einbehalten.</li>
+</ul>
+<p><em>TODO: diese Fristen und Prozentsätze vor der endgültigen Veröffentlichung mit BBFarm srl bestätigen.</em></p>
+<h3>6. Höhere Gewalt</h3>
+<p>Keine der Parteien haftet für die Nichterfüllung ihrer Verpflichtungen, wenn diese auf Umstände höherer Gewalt zurückzuführen ist, einschließlich, aber nicht beschränkt auf Naturkatastrophen, Pandemien, behördliche Beschränkungen, Krieg oder zivile Unruhen, die außerhalb der angemessenen Kontrolle der betroffenen Partei liegen.</p>
+<h3>7. Nutzung der Immobilie</h3>
+<p>Der Gast verpflichtet sich: keine öffentlichen Veranstaltungen oder größeren Zusammenkünfte ohne vorherige schriftliche Zustimmung des Eigentümers zu organisieren; nach 23:00 Uhr keine verstärkte Musik abzuspielen; zu akzeptieren, dass Haustiere nur gegen einen Aufpreis und nach vorheriger Genehmigung zugelassen sind; nur in den dafür vorgesehenen Außenbereichen zu rauchen; und den Pool auf eigene Gefahr zu nutzen, wobei der Gast jegliches Risiko aus dessen Nutzung übernimmt.</p>
+<h3>8. Haftung</h3>
+<p>Die Haftung des Eigentümers gegenüber dem Gast ist in jedem mit diesem Vertrag zusammenhängenden Fall auf den insgesamt für die Mietung der Immobilie gezahlten Betrag beschränkt.</p>
+<h3>9. Datenschutz</h3>
+<p>Die Verarbeitung der personenbezogenen Daten des Gastes unterliegt unserer <a href="privacy-policy.html">Datenschutzerklärung</a>, abrufbar unter terra-mallorca.com/privacy-policy.html.</p>
+<h3>10. Anwendbares Recht und Gerichtsstand</h3>
+<p>Dieser Vertrag unterliegt spanischem Recht. Für Streitigkeiten aus diesem Vertrag sind ausschließlich die Gerichte von Palma de Mallorca zuständig.</p>`
+      },
+    };
+
+    function applyTermsLang(lang) {
+      const L = TERMS_LANG[lang] || TERMS_LANG.es;
+      document.documentElement.lang = lang;
+      document.getElementById('privacyTitle').textContent = L.title;
+      document.getElementById('privacyUpdated').textContent = L.updated;
+      document.getElementById('termsBanner').textContent = L.banner;
+      document.getElementById('termsPrintBtn').textContent = L.print;
+      document.getElementById('privacyBody').innerHTML = L.html;
+      document.getElementById('backLinkTop').textContent = L.back;
+      document.getElementById('backLinkBottom').textContent = L.back;
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+      try { localStorage.setItem('terra_lang', lang); } catch(_) {}
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => applyTermsLang(btn.dataset.lang));
+    });
+
+    /* Load language from localStorage or default to es */
+    const storedLang = (() => { try { return localStorage.getItem('terra_lang'); } catch(_) { return null; } })();
+    applyTermsLang(storedLang || 'es');
+  </script>
+
+</body>
+</html>

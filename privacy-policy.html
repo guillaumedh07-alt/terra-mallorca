@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Política de Privacidad — TERRA</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=20260514e" />
+  <style>
+    /* Privacy page specific styles */
+    .privacy-page-header {
+      background: var(--cream);
+      border-bottom: 1px solid var(--beige);
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .privacy-page-logo {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 1.4rem;
+      letter-spacing: 0.25em;
+      color: var(--earth);
+      text-decoration: none;
+    }
+    .privacy-page-back {
+      font-family: var(--font-sans, var(--font-body));
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: var(--stone);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .privacy-page-back:hover { color: var(--earth); opacity: 1; }
+    .privacy-page-main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+    }
+    .privacy-page-footer {
+      border-top: 1px solid var(--beige);
+      padding: 2rem;
+      text-align: center;
+    }
+    .privacy-page-lang {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    .privacy-page-lang .lang-btn {
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--stone);
+      padding: 0.2rem 0.3rem;
+      transition: color 0.2s;
+    }
+    .privacy-page-lang .lang-btn.active { color: var(--earth); font-weight: 500; }
+    .privacy-page-lang .lang-sep { color: var(--beige); font-size: 0.7rem; }
+  </style>
+</head>
+<body>
+
+  <header class="privacy-page-header">
+    <a href="index.html" class="privacy-page-logo">TERRA</a>
+    <div class="privacy-page-lang">
+      <button class="lang-btn" data-lang="es">ES</button>
+      <span class="lang-sep" aria-hidden="true">|</span>
+      <button class="lang-btn" data-lang="en">EN</button>
+      <span class="lang-sep" aria-hidden="true">|</span>
+      <button class="lang-btn" data-lang="fr">FR</button>
+      <span class="lang-sep" aria-hidden="true">|</span>
+      <button class="lang-btn" data-lang="de">DE</button>
+    </div>
+    <a href="index.html" class="privacy-page-back" id="backLinkTop">← Volver a TERRA</a>
+  </header>
+
+  <main class="privacy-page-main">
+    <h1 class="privacy-title" id="privacyTitle" style="font-family:var(--font-display);font-weight:400;font-size:clamp(1.8rem,3vw,2.8rem);margin-bottom:0.5rem;color:var(--earth);">Política de Privacidad</h1>
+    <p class="privacy-updated" id="privacyUpdated" style="font-size:0.8rem;color:var(--stone);margin-bottom:2rem;letter-spacing:0.05em;"></p>
+    <div class="privacy-body" id="privacyBody"></div>
+  </main>
+
+  <footer class="privacy-page-footer">
+    <a href="index.html" class="privacy-page-back" id="backLinkBottom">← Volver a TERRA</a>
+  </footer>
+
+  <script>
+    /* Minimal privacy page script — language switching only */
+    const PRIVACY_LANG = {
+      es: {
+        title:   'Política de Privacidad',
+        updated: 'Última actualización: mayo de 2025',
+        back:    '← Volver a TERRA',
+        html: `
+<h3>1. Responsable del tratamiento</h3>
+<p>BBFarm srl, propietaria de TERRA — Your Private Estate, Campanet, Mallorca, España.<br>Contacto: <a href="mailto:estates@terra-mallorca.com">estates@terra-mallorca.com</a></p>
+<h3>2. Datos que recopilamos</h3>
+<p>Recopilamos únicamente los datos que usted nos proporciona voluntariamente: nombre, dirección de correo electrónico, número de teléfono y cualquier información adicional que incluya en los formularios de contacto y reserva.</p>
+<h3>3. Finalidad del tratamiento</h3>
+<ul>
+  <li>Gestionar su solicitud de reserva y comunicaciones previas a la estancia.</li>
+  <li>Responder a consultas enviadas a través del formulario de contacto o correo electrónico.</li>
+  <li>Con su consentimiento explícito: analítica web mediante Google Analytics 4 para mejorar el rendimiento del sitio.</li>
+</ul>
+<h3>4. Base jurídica</h3>
+<p>El tratamiento se basa en el interés legítimo de gestionar reservas y consultas (art. 6.1.b RGPD), y en su consentimiento para las cookies analíticas (art. 6.1.a RGPD).</p>
+<h3>5. Cookies</h3>
+<p>Este sitio utiliza cookies esenciales (necesarias para el funcionamiento) y, con su consentimiento, cookies analíticas de Google Analytics 4. Puede retirar su consentimiento en cualquier momento mediante el botón "Configurar cookies" en el pie de página.</p>
+<h3>6. Conservación de datos</h3>
+<p>Los datos de reserva se conservan durante 5 años conforme a la normativa fiscal española. Los datos de consultas no materializadas en reserva se eliminan transcurridos 12 meses.</p>
+<h3>7. Sus derechos</h3>
+<p>Tiene derecho a acceder, rectificar, suprimir, limitar u oponerse al tratamiento de sus datos, así como a la portabilidad. Puede ejercer estos derechos escribiendo a <a href="mailto:estates@terra-mallorca.com">estates@terra-mallorca.com</a>. También tiene derecho a presentar una reclamación ante la Agencia Española de Protección de Datos (aepd.es).</p>
+<h3>8. Transferencias internacionales</h3>
+<p>Google Analytics puede transferir datos a servidores en EE. UU. bajo las garantías del Marco de Privacidad de Datos UE-EE. UU. (DPF). No realizamos otras transferencias internacionales de sus datos personales.</p>
+<h3>9. Seguridad</h3>
+<p>Adoptamos medidas técnicas y organizativas adecuadas para proteger sus datos contra acceso no autorizado, pérdida o divulgación.</p>`
+      },
+      en: {
+        title:   'Privacy Policy',
+        updated: 'Last updated: May 2025',
+        back:    '← Back to TERRA',
+        html: `
+<h3>1. Data controller</h3>
+<p>BBFarm srl, owner of TERRA — Your Private Estate, Campanet, Mallorca, Spain.<br>Contact: <a href="mailto:estates@terra-mallorca.com">estates@terra-mallorca.com</a></p>
+<h3>2. Data we collect</h3>
+<p>We collect only the data you voluntarily provide: name, email address, phone number, and any additional information included in contact and booking forms.</p>
+<h3>3. Purpose of processing</h3>
+<ul>
+  <li>Managing your booking request and pre-stay communications.</li>
+  <li>Responding to enquiries submitted via the contact form or email.</li>
+  <li>With your explicit consent: web analytics via Google Analytics 4 to improve site performance.</li>
+</ul>
+<h3>4. Legal basis</h3>
+<p>Processing is based on the legitimate interest of managing bookings and enquiries (Art. 6.1.b GDPR), and on your consent for analytics cookies (Art. 6.1.a GDPR).</p>
+<h3>5. Cookies</h3>
+<p>This site uses essential cookies (required for functionality) and, with your consent, Google Analytics 4 analytics cookies. You may withdraw consent at any time via the "Cookie settings" button in the footer.</p>
+<h3>6. Data retention</h3>
+<p>Booking data is retained for 5 years in line with Spanish tax regulations. Enquiry data not resulting in a booking is deleted after 12 months.</p>
+<h3>7. Your rights</h3>
+<p>You have the right to access, rectify, erase, restrict or object to the processing of your data, as well as to data portability. To exercise these rights, write to <a href="mailto:estates@terra-mallorca.com">estates@terra-mallorca.com</a>. You also have the right to lodge a complaint with your local data protection authority.</p>
+<h3>8. International transfers</h3>
+<p>Google Analytics may transfer data to servers in the US under the EU-US Data Privacy Framework (DPF). We do not make other international transfers of your personal data.</p>
+<h3>9. Security</h3>
+<p>We apply appropriate technical and organisational measures to protect your data against unauthorised access, loss or disclosure.</p>`
+      },
+      fr: {
+        title:   'Politique de Confidentialité',
+        updated: 'Dernière mise à jour : mai 2025',
+        back:    '← Retour à TERRA',
+        html: `
+<h3>1. Responsable du traitement</h3>
+<p>BBFarm srl, propriétaire de TERRA — Your Private Estate, Campanet, Majorque, Espagne.<br>Contact : <a href="mailto:estates@terra-mallorca.com">estates@terra-mallorca.com</a></p>
+<h3>2. Données collectées</h3>
+<p>Nous collectons uniquement les données que vous nous fournissez volontairement : nom, adresse e-mail, numéro de téléphone et toute information supplémentaire incluse dans les formulaires de contact et de réservation.</p>
+<h3>3. Finalité du traitement</h3>
+<ul>
+  <li>Gestion de votre demande de réservation et des communications préalables au séjour.</li>
+  <li>Réponse aux demandes soumises via le formulaire de contact ou par e-mail.</li>
+  <li>Avec votre consentement explicite : analyse web via Google Analytics 4 pour améliorer les performances du site.</li>
+</ul>
+<h3>4. Base juridique</h3>
+<p>Le traitement repose sur l'intérêt légitime de la gestion des réservations et des demandes (art. 6.1.b RGPD) et sur votre consentement pour les cookies analytiques (art. 6.1.a RGPD).</p>
+<h3>5. Cookies</h3>
+<p>Ce site utilise des cookies essentiels (nécessaires au fonctionnement) et, avec votre consentement, des cookies analytiques Google Analytics 4. Vous pouvez retirer votre consentement à tout moment via le bouton « Paramètres des cookies » en pied de page.</p>
+<h3>6. Conservation des données</h3>
+<p>Les données de réservation sont conservées pendant 5 ans conformément à la réglementation fiscale espagnole. Les données de demandes non converties en réservation sont supprimées après 12 mois.</p>
+<h3>7. Vos droits</h3>
+<p>Vous disposez des droits d'accès, de rectification, d'effacement, de limitation, d'opposition et de portabilité. Pour les exercer, écrivez à <a href="mailto:estates@terra-mallorca.com">estates@terra-mallorca.com</a>. Vous avez également le droit de déposer une plainte auprès de votre autorité de protection des données.</p>
+<h3>8. Transferts internationaux</h3>
+<p>Google Analytics peut transférer des données vers des serveurs aux États-Unis dans le cadre du Cadre de protection des données UE-États-Unis (DPF). Nous n'effectuons pas d'autres transferts internationaux de vos données personnelles.</p>
+<h3>9. Sécurité</h3>
+<p>Nous appliquons des mesures techniques et organisationnelles appropriées pour protéger vos données contre tout accès non autorisé, perte ou divulgation.</p>`
+      },
+      de: {
+        title:   'Datenschutzerklärung',
+        updated: 'Letzte Aktualisierung: Mai 2025',
+        back:    '← Zurück zu TERRA',
+        html: `
+<h3>1. Verantwortlicher</h3>
+<p>BBFarm srl, Eigentümer von TERRA — Your Private Estate, Campanet, Mallorca, Spanien.<br>Kontakt: <a href="mailto:estates@terra-mallorca.com">estates@terra-mallorca.com</a></p>
+<h3>2. Erhobene Daten</h3>
+<p>Wir erheben ausschließlich Daten, die Sie uns freiwillig mitteilen: Name, E-Mail-Adresse, Telefonnummer sowie etwaige zusätzliche Informationen in Kontakt- und Buchungsformularen.</p>
+<h3>3. Zweck der Verarbeitung</h3>
+<ul>
+  <li>Bearbeitung Ihrer Buchungsanfrage und vorheriger Kommunikation.</li>
+  <li>Beantwortung von Anfragen über das Kontaktformular oder per E-Mail.</li>
+  <li>Mit Ihrer ausdrücklichen Einwilligung: Web-Analyse über Google Analytics 4 zur Verbesserung der Website.</li>
+</ul>
+<h3>4. Rechtsgrundlage</h3>
+<p>Die Verarbeitung erfolgt auf Grundlage des berechtigten Interesses an der Verwaltung von Buchungen und Anfragen (Art. 6.1.b DSGVO) sowie Ihrer Einwilligung für analytische Cookies (Art. 6.1.a DSGVO).</p>
+<h3>5. Cookies</h3>
+<p>Diese Website verwendet essentielle Cookies (für den Betrieb erforderlich) und mit Ihrer Einwilligung Google Analytics 4 Cookies. Sie können Ihre Einwilligung jederzeit über den Button „Cookie-Einstellungen" in der Fußzeile widerrufen.</p>
+<h3>6. Datenspeicherung</h3>
+<p>Buchungsdaten werden gemäß spanischem Steuerrecht 5 Jahre aufbewahrt. Anfragedaten, die nicht zu einer Buchung führen, werden nach 12 Monaten gelöscht.</p>
+<h3>7. Ihre Rechte</h3>
+<p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung, Widerspruch und Datenübertragbarkeit. Zur Ausübung wenden Sie sich an <a href="mailto:estates@terra-mallorca.com">estates@terra-mallorca.com</a>. Außerdem steht Ihnen das Recht zu, Beschwerde bei einer Datenschutzbehörde einzureichen.</p>
+<h3>8. Internationale Übermittlungen</h3>
+<p>Google Analytics kann Daten auf Server in den USA übertragen, abgesichert durch den EU-US-Datenschutzrahmen (DPF). Wir nehmen keine weiteren internationalen Übermittlungen Ihrer personenbezogenen Daten vor.</p>
+<h3>9. Sicherheit</h3>
+<p>Wir treffen geeignete technische und organisatorische Maßnahmen, um Ihre Daten vor unbefugtem Zugriff, Verlust oder Offenlegung zu schützen.</p>`
+      },
+    };
+
+    function applyPrivacyLang(lang) {
+      const L = PRIVACY_LANG[lang] || PRIVACY_LANG.es;
+      document.documentElement.lang = lang;
+      document.getElementById('privacyTitle').textContent = L.title;
+      document.getElementById('privacyUpdated').textContent = L.updated;
+      document.getElementById('privacyBody').innerHTML = L.html;
+      document.getElementById('backLinkTop').textContent = L.back;
+      document.getElementById('backLinkBottom').textContent = L.back;
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+      try { localStorage.setItem('terra_lang', lang); } catch(_) {}
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => applyPrivacyLang(btn.dataset.lang));
+    });
+
+    /* Load language from localStorage or default to es */
+    const storedLang = (() => { try { return localStorage.getItem('terra_lang'); } catch(_) { return null; } })();
+    applyPrivacyLang(storedLang || 'es');
+  </script>
+
+</body>
+</html>

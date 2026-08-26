@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /privacy-policy.html
+Disallow: /terms.html
+
+Sitemap: https://terra-mallorca.com/sitemap.xml
